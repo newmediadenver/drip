@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON demo</title>
+  <style>
+  img {
+    height: 100px;
+    float: left;
+  }
+  </style>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<div id="hipchat-info">
+
+</div>
+
+<script>
+(function() {
+  // var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+  // $.getJSON( flickerAPI, {
+  //   tags: "mount rainier",
+  //   tagmode: "any",
+  //   format: "json"
+  // })
+  //   .done(function( data ) {
+  //     $.each( data.items, function( i, item ) {
+  //       $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+  //       if ( i === 3 ) {
+  //         return false;
+  //       }
+  //     });
+  //   });
+  var url = "https://api.hipchat.com/v2/room/510323/history?auth_token=hVmouQ5E6Zgj6cHzO9E0K5D4I6PE6rSLdyptPlPz&reverse=false";
+  $.getJSON( url, function( data ) {
+    $('#hipchat-info').append('<ul id="hipchat-list"></ul>');
+    for (var i in data.items) {
+      $('#hipchat-list').append('<li class="color-'+data.items[i].color+' "><span class="user-name">'+data.items[i].from+'</span><span class="message">  '+ data.items[i].message +'  </span><span class="date">'+data.items[i].date+'</span></li>')
+    };
+  });
+})();
+</script>
+
+</body>
+</html>
