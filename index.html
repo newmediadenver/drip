@@ -17,6 +17,16 @@
 <div id="hipchat-info">
 
 </div>
-
+<script>
+  jQuery(document).ready(function($) {
+    var roomId  = '510323',
+        token   = 'hVmouQ5E6Zgj6cHzO9E0K5D4I6PE6rSLdyptPlPz';
+    $('#hipchat-info').getHipChat({
+      room: roomId,
+      authToken: token,
+      delay: 60000
+    });
+  });
+</script>
 </body>
 </html>
