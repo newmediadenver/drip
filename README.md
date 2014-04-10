@@ -24,22 +24,31 @@ To use this widget simply create an html document that calls jQuery and then the
 </head>
 <body>
 
-<div id="hipchat-info">
-
-</div>
+<div id="hipchat-room-12345"></div>
 <script>
   jQuery(document).ready(function($) {
-    var roomId  = '510323',
-        token   = 'hVmouQ5E6Zgj6cHzO9E0K5D4I6PE6rSLdyptPlPz';
-    $('#hipchat-info').drip({
-      room: '12345', //room id or name (default: 12345)
-      authToken: 'abcdef12345', //your API Access token (default: abcdef12345)
-      reverse: 'true', //the order you want your messages in (default: true == newest first)
-      delay: ‘60000', // the amount of time (milliseconds) between list refreshes. (default: 60000)
-      maxResults: 100 //maximum number of results you want displayed (default: 100)
+    var roomId  = '12345', //room id or name
+        token   = 'abcdef12345'; //your API Access token
+    $('#hipchat-room-12345').drip({
+      room: roomId, //room id or name (default: 12345)
+      authToken: token, //your API Access token (default: abcdef12345)
+      reverse: 'true', //the order you want your messages in (default: true)
+      delay: '15000', // the amount of time (milliseconds) between list refreshes. (default: 15000)
+      maxResults: 25 //maximum number of results you want displayed (default: 25)
     });
   });
 </script>
 </body>
 </html>
 ```
+As you can see above this plugin takes 5 parameters (room, authToken, reverse, delay, and maxResults).
+
+- room should be set to the room’s API ID or Name (default is 12345) You can get your room's ID via this page or the rooms/list API method.
+- authToken should be the [API Access Token](https://www.hipchat.com/account/api) of an authorized user (default is abcdef12345)
+- reverse defines the order at which the messages will be displayed. true = newest on top, false = oldest on top (default is true)
+- delay defines the amount of time in milliseconds between list refreshes. (default is 15000)
+- maxResults defines the number of messages you want displayed on the list. (default is 25)
+
+To test this widget please goto add your user api access token and the room id/name to the test/test.html file then open the file up in your browser.
+
+For more information on the HipChat API history function visit [API Version 2 Documentation](https://www.hipchat.com/docs/apiv2/method/view_history)

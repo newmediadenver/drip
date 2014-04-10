@@ -6,8 +6,8 @@
       authToken: 'abcdef12345',
       reverse: 'true',
       target: $(this),
-      delay: 60000,
-      maxResults: 100
+      delay: 15000,
+      maxResults: 25
     }, options );
     // If setting isn't defined it will use default setting defined above as var.
     var $room = settings.room,
