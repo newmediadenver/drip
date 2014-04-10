@@ -6,7 +6,7 @@
       authToken: 'abcdef12345',
       reverse: 'true',
       target: $(this),
-      delay: 15000,
+      delay: 60000,
       maxResults: 25
     }, options );
     // If setting isn't defined it will use default setting defined above as var.
@@ -16,12 +16,15 @@
         $target = settings.target,
         $time = settings.delay,
         $maxResults = settings.maxResults,
+        $count = 0;
         $url = "https://api.hipchat.com/v2/room/"+$room+"/history?auth_token="+$authToken+"&reverse="+$reverse+"&max-results="+$maxResults;
     //ajax call to HipChat API
     $.getJSON( $url, function( data ) {
       //check to see if list exists then append it if it doesn't
       if (!$target.find('.hipchat-list').length) {
         $target.append('<ul class="hipchat-list"></ul>')
+      }else{
+        $count = 1;
       };
       //append new messages
       for (var i in data.items) {
@@ -33,6 +36,9 @@
         //if this message doesn't exist then prepend it to the list.
         if ($messageDate > $prevMessageDate) {
           $target.find('.hipchat-list').prepend('<li class="hipchat-message color-'+data.items[i].color+' "><span class="user-name">'+data.items[i].from+'</span><span class="message">  '+ data.items[i].message +'  </span><span class="message-date">'+ $simpleDate +'</span><span class="date" style="display: none;">'+$date+'</span></li>');
+          if ($count == 1) {
+            $target.find('.hipchat-list li').last().remove();
+          };
         };
       }; //end for loop
     }); //end ajax

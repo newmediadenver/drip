@@ -1,7 +1,7 @@
 # DRIP
 ##A notification widget that integrates with HipChat.
 
-This widget uses a custom jQuery plugin to create a list of messages stored in your chatroom’s history. It is displayed in the same order that the messages are displayed on the HipChat application (user-name, message, date).
+This jQuery widget uses a custom jQuery plugin to create a list of messages stored in your chatroom’s history. It is displayed in the same order that the messages are displayed on the HipChat application (user-name, message, date).
 
 ***
 
@@ -33,8 +33,8 @@ To use this widget simply create an html document that calls jQuery and then the
       room: roomId, //room id or name (default: 12345)
       authToken: token, //your API Access token (default: abcdef12345)
       reverse: 'true', //the order you want your messages in (default: true)
-      delay: '15000', // the amount of time (milliseconds) between list refreshes. (default: 15000)
-      maxResults: 25 //maximum number of results you want displayed (default: 25)
+      delay: 60000, // the amount of time (milliseconds) between list refreshes. (default: 60000) If this number is to low you may start to see forbiden responces from the HipChat Server.
+      maxResults: 25 //maximum number of results you want displayed initially (default: 25)
     });
   });
 </script>
@@ -46,8 +46,8 @@ As you can see above this plugin takes 5 parameters (room, authToken, reverse, d
 - room should be set to the room’s API ID or Name (default is 12345) You can get your room's ID via this page or the rooms/list API method.
 - authToken should be the [API Access Token](https://www.hipchat.com/account/api) of an authorized user (default is abcdef12345)
 - reverse defines the order at which the messages will be displayed. true = newest on top, false = oldest on top (default is true)
-- delay defines the amount of time in milliseconds between list refreshes. (default is 15000)
-- maxResults defines the number of messages you want displayed on the list. (default is 25)
+- delay defines the amount of time in milliseconds between list refreshes. (default is 60000) If this number is to low you may start to see forbiden responces from the HipChat Server.
+- maxResults defines the number of messages you want displayed on the list on page load. (default is 25)
 
 To test this widget please goto add your user api access token and the room id/name to the test/test.html file then open the file up in your browser.
 
