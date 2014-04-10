@@ -32,10 +32,16 @@
             $jsDate = new Date($date), //convert to Date
             $simpleDate = $jsDate.toLocaleString(), //convert to local string value
             $messageDate  = $date.replace(/[^0-9.]/g, ""), //convert to numbers
-            $prevMessageDate = $target.find('.hipchat-list .date:first').text().replace(/[^0-9.]/g, "");
+            $prevMessageDate = $target.find('.hipchat-list .date:first').text().replace(/[^0-9.]/g, ""),
+            $userName = data.items[i].from;
+            if (typeof $userName.name !== "undefined") {
+              $userName = $userName.name;
+            } else {
+              $userName = $userName;
+            }
         //if this message doesn't exist then prepend it to the list.
         if ($messageDate > $prevMessageDate) {
-          $target.find('.hipchat-list').prepend('<li class="hipchat-message color-'+data.items[i].color+' "><span class="user-name">'+data.items[i].from+'</span><span class="message">  '+ data.items[i].message +'  </span><span class="message-date">'+ $simpleDate +'</span><span class="date" style="display: none;">'+$date+'</span></li>');
+          $target.find('.hipchat-list').prepend('<li class="hipchat-message color-'+data.items[i].color+' "><span class="user-name">'+$userName+'</span><span class="message">  '+ data.items[i].message +'  </span><span class="message-date">'+ $simpleDate +'</span><span class="date" style="display: none;">'+$date+'</span></li>');
           if ($count == 1) {
             $target.find('.hipchat-list li').last().remove();
           };
