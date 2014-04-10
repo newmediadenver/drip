@@ -12,7 +12,7 @@ To use this widget simply create an html document that calls jQuery and then the
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>jQuery.getJSON demo</title>
+  <title>DRIP Test</title>
   <style>
   img {
     height: 100px;
