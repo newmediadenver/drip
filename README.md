@@ -20,7 +20,7 @@ To use this widget simply create an html document that calls jQuery and then the
   }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/drip.js"></script>
+  <script src="js/drip.min.js"></script>
 </head>
 <body>
 
