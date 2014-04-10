@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DRIP Test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="drip.min.js"></script>
+</head>
+<body>
+
+  <div id="hipchat-room-12345"></div>
+  <script>
+    jQuery(document).ready(function($) {
+
+      //place API Tokens Here
+      var roomId  = '510323', //room id or name
+          token   = 'hVmouQ5E6Zgj6cHzO9E0K5D4I6PE6rSLdyptPlPz'; //your API Access token
+
+      $('#hipchat-room-12345').drip({
+        room: roomId, //room id or name (default: 12345)
+        authToken: token, //your API Access token (default: abcdef12345)
+        reverse: 'true', //the order you want your messages in (default: true)
+        delay: 60000, // the amount of time (milliseconds) between list refreshes. (default: 60000) If this number is to low you may start to see forbiden responces from the HipChat Server.
+        maxResults: 25 //maximum number of results you want displayed (default: 25)
+      });
+    });
+  </script>
+</body>
+</html>
