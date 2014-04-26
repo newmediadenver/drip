@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/newmediadenver/drip.png?label=ready&title=Ready)](https://waffle.io/newmediadenver/drip)
 # DRIP
 ##A notification widget that integrates with HipChat.
 
